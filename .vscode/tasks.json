@@ -1,0 +1,26 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "backend",
+            "type": "shell",
+            "command": "air"
+        },
+        {
+            "label": "frontend",
+            "type": "shell",
+            "command": "yarn start"
+        },
+        {
+            "label": "database",
+            "type": "shell",
+            "command": "docker-compose up"
+        },
+        {
+            "label": "Run",
+            "dependsOn": ["frontend", "backend", "database"]
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    
+    h1 {
+        font-size: clamp(1.913rem, calc( 12px + 2.475vw ), 2.587rem);
+        line-height: 1.1;
+    }
+    
+    h2 {
+        font-size: clamp(1.575rem, calc( 12px + 1.800vw ), 2.025rem);
+        line-height: 1.1;
+    }
+    
+    h3 {
+        font-size: clamp(1.282rem, calc( 12px + 1.350vw ), 1.688rem);
+        line-height: 1.1;
+    }
+    
+    h4 {
+        font-size: clamp(1.125rem, calc( 12px + 0.900vw ), 1.350rem);
+        line-height: 1.1;
+    }
+    
+    p {
+        font-size: clamp(1.035rem, calc( 12px + 0.540vw ), 1.125rem);
+        line-height: 1.1;
+    }
+    
+    span {
+        font-size: clamp(0.900rem, calc( 12px + 0.360vw ), 1.012rem);
+        line-height: 1.1;
+    }
+    
+    li {
+        font-size: clamp(0.900rem, calc( 12px + 0.360vw ), 1.012rem);
+        line-height: 1.1;
+    }
+}
+
+@layer components {
+    body {
+        @apply h-screen flex justify-center items-center;
+        color: hsl(0,0%,40%);
+    }
+
+    
+    .todo {
+        
+        &-container {
+            @apply flex justify-center items-center h-3/4;
+            width: clamp(300px, 60vw, 600px);
+            border-radius: 50px;
+            background: hsl(0,0%,100%);
+            box-shadow:  -20px 20px 60px hsl(0, 0%, 85%),
+                        20px -20px 60px  hsl(0, 0%, 100%);
+        }
+        &-list{
+            @apply w-10/12 text-center flex justify-center flex-col  items-center;
+        }
+        &-btn {
+            @apply p-2 text-center font-black cursor-pointer select-none;
+            width: clamp(100px, 60%, 600px);
+            border-radius: 0.5em;
+            background: linear-gradient(145deg, hsl(240, 100%, 20%), hsl(240, 100%, 11%));
+            box-shadow:  0.25em 0.25em 1em hsl(0, 0%, 85%),
+                        -0.25em -0.25em 1em hsl(0, 0%, 100%);
+            color: hsl(0,0%,100%);
+            font-size: clamp(1.125rem, calc( 12px + 0.900vw ), 1.350rem);
+            line-height: 1.1;
+        }
+        &-item {
+            @apply my-4 mx-2 flex justify-between w-full;
+            width: clamp(100px, 60%, 600px);
+        }
+    }
+}

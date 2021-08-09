@@ -1,0 +1,43 @@
+---
+// Component Imports
+const data = await fetch('http://localhost:5000/api/todos').then((response) =>
+    response.json()
+);
+
+import styles from '../assets/global.scss';
+import Trash from '../components/Trash.vue'
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+    </head>
+    <body>
+        <main class="todo-container">
+            <ul class="todo-list">
+                {data.data.todos.length != 0 ? 
+                    data.data.todos.map((item) => (
+                        <li class="todo-item">
+                            <div>
+                                <input type="checkbox" checked={item.completed} name={item.title}>
+                            </div>
+                            <div>{item.title}</div>
+                            <div><Trash id={item._key} client:load></Trash></div>
+                        </li>
+                    ))
+                    :
+                    <span>no todo</span>
+                }
+                <li class="todo-btn">+</li>
+            </ul>
+        </main>
+        
+        <script src="https://kit.fontawesome.com/7e4286f562.js" crossorigin="anonymous"></script>
+    </body>
+</html>
